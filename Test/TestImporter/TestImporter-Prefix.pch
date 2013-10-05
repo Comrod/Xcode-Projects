@@ -1,0 +1,6 @@
+//
+// Prefix header for all source files of the 'TestImporter' target in the 'TestImporter' project
+//
+
+#ifdef __OBJC__
+#endif
