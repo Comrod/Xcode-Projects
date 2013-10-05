@@ -66,7 +66,7 @@ static const uint32_t monsterCategory        =  0x1 << 1;
         self.physicsWorld.gravity = CGVectorMake(0,0);
         self.physicsWorld.contactDelegate = self;
         
-        
+        msSobj = [SingletonObject singleObj];
     }
     return self;
 }
@@ -175,7 +175,15 @@ NSDate *startTime;
     NSString *elapsedTimeString = [NSString stringWithFormat:@"Elapsed time: %f", elapsedTime];
     NSLog(@"%@", elapsedTimeString);
     
-    [self runAction:[SKAction playSoundFileNamed:@"pew-pew-lei.caf" waitForCompletion:NO]];
+    if(msSobj.soundOnOff <= 0)
+    {
+        [self runAction:[SKAction playSoundFileNamed:@"pew-pew-lei.caf" waitForCompletion:NO]];
+        NSLog(@"Sound On Off: %ld", (long)msSobj.soundOnOff);
+    }
+    else
+    {
+        NSLog(@"Pew Pew Sound No Play");
+    }
     
     // 1 - Choose one of the touches to work with
     UITouch * touch = [touches anyObject];

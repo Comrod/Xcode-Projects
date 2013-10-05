@@ -18,16 +18,13 @@
 
 @implementation ViewController
 
+@synthesize volumeSegment;
+
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
-    
-    NSError *error;
-    NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"background-music-aac" withExtension:@"caf"];
-    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
-    self.backgroundMusicPlayer.numberOfLoops = -1;
-    [self.backgroundMusicPlayer prepareToPlay];
-    [self.backgroundMusicPlayer play];
+    vcSobj = [SingletonObject singleObj];
+    vcSobj.soundOnOff = -1;
     
     // Configure the view.
     SKView * skView = (SKView *)self.view;
@@ -41,6 +38,59 @@
         
         // Present the scene.
         [skView presentScene:scene];
+    }
+    
+    if (vcSobj.soundOnOff == -1)
+    {
+        [volumeSegment setSelectedSegmentIndex:0];
+        NSError *error;
+        NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"background-music-aac" withExtension:@"caf"];
+        self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+        self.backgroundMusicPlayer.numberOfLoops = -1;
+        [self.backgroundMusicPlayer prepareToPlay];
+        [self.backgroundMusicPlayer play];
+        
+        [volumeSegment setSelectedSegmentIndex:0];
+    }
+    else if (vcSobj.soundOnOff == 0)
+    {
+        [volumeSegment setSelectedSegmentIndex:0];
+    }
+    else if (vcSobj.soundOnOff == 1)
+    {
+        [volumeSegment setSelectedSegmentIndex:1];
+    }
+    
+}
+
+-(void)stopAudio
+{
+    if(self.backgroundMusicPlayer.isPlaying)
+    {
+        [self.backgroundMusicPlayer stop];
+    }
+    soundOnOff = 1;
+    vcSobj.soundOnOff = 1;
+}
+
+- (IBAction)volumeSegmentTap:(id)sender
+{
+    if ([volumeSegment selectedSegmentIndex] == 0)
+    {
+        [volumeSegment setSelectedSegmentIndex:0];
+        NSError *error;
+        NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"background-music-aac" withExtension:@"caf"];
+        self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+        self.backgroundMusicPlayer.numberOfLoops = -1;
+        [self.backgroundMusicPlayer prepareToPlay];
+        [self.backgroundMusicPlayer play];
+        vcSobj.soundOnOff = 0;
+    }
+    else if ([volumeSegment selectedSegmentIndex] == 1)
+    {
+        [self stopAudio];
+        NSLog(@"Sound Turned Off");
+        vcSobj.soundOnOff = 1;
     }
 }
 

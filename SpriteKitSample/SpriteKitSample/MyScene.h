@@ -7,7 +7,11 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "SingletonObject.h"
 
 @interface MyScene : SKScene
+{
+    SingletonObject *msSobj;
+}
 
 @end

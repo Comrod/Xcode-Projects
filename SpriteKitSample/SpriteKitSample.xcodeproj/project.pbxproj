@@ -28,6 +28,7 @@
 		24062412180051850036D5ED /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2406240F180051850036D5ED /* pew-pew-lei.caf */; };
 		24062413180051850036D5ED /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 24062410180051850036D5ED /* sprites.atlas */; };
 		24062416180062C50036D5ED /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 24062415180062C50036D5ED /* GameOverScene.m */; };
+		249638751800AC19005697DE /* SingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 249638741800AC19005697DE /* SingletonObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		24062410180051850036D5ED /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
 		24062414180062C50036D5ED /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		24062415180062C50036D5ED /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
+		249638731800AC19005697DE /* SingletonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonObject.h; sourceTree = "<group>"; };
+		249638741800AC19005697DE /* SingletonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				240623E1180050C40036D5ED /* AppDelegate.h */,
+				249638731800AC19005697DE /* SingletonObject.h */,
+				249638741800AC19005697DE /* SingletonObject.m */,
 				240623E2180050C40036D5ED /* AppDelegate.m */,
 				240623E4180050C40036D5ED /* Main.storyboard */,
 				240623E7180050C40036D5ED /* ViewController.h */,
@@ -295,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249638751800AC19005697DE /* SingletonObject.m in Sources */,
 				24062416180062C50036D5ED /* GameOverScene.m in Sources */,
 				240623EC180050C40036D5ED /* MyScene.m in Sources */,
 				240623E9180050C40036D5ED /* ViewController.m in Sources */,
@@ -510,6 +516,7 @@
 				24062408180050C50036D5ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24062409180050C50036D5ED /* Build configuration list for PBXNativeTarget "SpriteKitSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +525,7 @@
 				2406240B180050C50036D5ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
